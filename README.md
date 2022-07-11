@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# Specifikacije za završni projekat
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# E-biblioteka 
 
-## Available Scripts
+## Uvod
 
-In the project directory, you can run:
+Cilj ovog projekta je izrada web aplikacije E-biblioteka namjenjene za korištenje u školskim ustanovama. Aplikacija treba da omogući pristup za dva tipa korisnika i to, učenicima i školskim bibliotekarima. Učenicima će biti dostupan pregled svih raspoloživih knjiga u biblioteci kao i mogućnost rezervacije određene knjige. Bibliotekari će imati pristup bazi podataka sa mogućnošću uređivanja, dodavanja, brisanja te zaduživanja i razduživanja odabranih knjiga od strane učenika. Izradom ove aplikacije će biti značajno olakšan pristup korisnicima. Aplikacija će im biti dostupna u bilo kojem trenutku. Time će se ponuditi brži i fleksibilniji način u odnosu na postojeći sistem biblioteka. Svi podaci o zaduživanju i razduživanju će biti trajno arhivirani, a time će se korištenje papira i registara za evidenciju smanjiti na minimum.
 
-### `npm start`
+## Detaljnije specifikacije
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Bibliotekari i učenici se na web portal prijavljuju koristeći istu login stranicu, koja na osnovu korisničkog imena utvrđuje da li je riječ o bibliotekaru ili učeniku. Na osnovu toga provjerava ispravnost pristupnih parametara i kreira sesiju.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ukoliko se korisnik prijavi u svojstvu bibliotekara, aplikacija treba da mu omogući da dodaje nove knjige, mijenja ili briše postojeće knjige iz baze, kao i da vrši zaduživanje i razduživanje knjiga učenicima. Svaka knjiga treba da bude uvrštena u određenu kategoriju, a pored opštih podataka treba da ima kratak opis i fotografiju korica. Potrebno je da se podaci o historiji zaduživanja/razduživanja evidentiraju trajno, kako ne bi došlo do gubitka podataka. Bibliotekari treba da imaju uvid u pojedinačno kretanje svake knjige, kao i da u svakom trenutku imaju pregled trenutno pozajmljenih knjiga, gdje se koja knjiga nalazi na zaduženju i kada treba da bude vraćena. Pored toga, treba da dobijaju statističke podatke oblika: koji naslovi su najtraženiji, koji autori najčitaniji, opterećenost svake pojedinačne knjige, broj izdavanja/pozajmljivanja tokom određenog vremenskog perioda. Nijedna knjiga ne može da se obriše iz baze, već može samo da se obilježi kao nedostupna u nekom od sljedećih svojstava: izgubljena, uništena ili nedostupna iz drugih razloga.
 
-### `npm test`
+Ukoliko se korisnik prijavi u svojstvu učenika aplikacija treba da mu omogući pregled knjiga po kategorijama, mogućnost pretrage, kao i informaciju da li je knjiga trenutno raspoloživa ili ne. Pored toga, učenici treba da imaju pregled svojih trenutnih zaduženja. Za knjige koje su trenutno zadužene, učenik može da vidi očekivan datum kada knjiga treba da bude vraćena i može da napravi rezervaciju za trenutno pozajmljenu knjigu. Bibliotekar vidi rezervacije za knjigu te kada bude vraćena može je ostaviti u posebnoj sekciji za rezervisane knjige. Rezervacije traju jedan dan nakon čega im ističe rezervacija te bivaju selektirane za vraćanje na police, ukoliko nisu pozajmljene u toku tog dana onom učeniku koji je izvršio rezervaciju.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Grafički interfejs web sajta treba da bude realizovan sa responsive dizajnom, da bi korisnici mogli koristiti aplikaciju i preko mobilnih uređaja.
 
-### `npm run build`
+## Tehnologije
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Aplikacija će biti realizovana na Node.js platformi korišćenjem Express biblioteke, a baza podataka će biti NoSql (MongoDB). Za postupak provjere identiteta korisnika koji upućuje zahtjeve back-end dijelu aplikacije koristit će se mehanizam sesija ili JWT (JSON Web Tokena). Grafički korisnički interfejs se generiše na strani klijenta (client side rendering), korišćenjem React biblioteke, dok podatke doprema asinhrono iz back-end dijela aplikacije (iz API-ja). Za dizajn grafičkog interfejsa aplikacije koristiti će se CSS biblioteke (Bootstrap CSS biblioteka). Izrada projekta i promjene kodova će biti praćene korištenjem alata za verziranje koda Git, a kôd aplikacije je dostupan na javnom Git spremištu (GitHub).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
